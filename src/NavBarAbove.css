@@ -1,0 +1,48 @@
+/* Style for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    padding: 1rem 2rem; /* Convert px to rem for better responsiveness */
+    background-color: black; /* Set the navbar background to black */
+    margin-bottom: 1rem;
+  }
+  
+  /* Style for the navbar items (links) */
+  .navbar-left {
+    display: flex;
+    gap: 2rem; /* Convert px to rem */
+    align-items: center; /* Center items vertically within the navbar-left */
+  }
+  
+  /* Ensure links don't have underlines or color changes */
+  .nav-item {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set text color to white */
+    font-weight: normal; /* Make the text normal weight */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    height: 100%; /* Ensure it takes full height of the navbar */
+    font-weight: bold;
+    font-size: 1.2rem; /* Set font size in rem for responsiveness */
+  }
+  
+  /* Optionally, prevent color changes on hover */
+  .nav-item:hover {
+    color: white; /* Keep the text color white when hovering */
+    cursor: pointer; /* Show the pointer cursor on hover */
+  }
+  
+  /* Right section with user profile image */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the profile image */
+  .profile-image {
+    width: 2.5rem; /* Convert px to rem */
+    height: 2.5rem; /* Convert px to rem */
+    border-radius: 50%;
+  }
+  
