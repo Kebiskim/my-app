@@ -1,6 +1,32 @@
+/* App.css */
+
+/* Initially dark background with opacity 0 */
 .App {
   text-align: center;
+  background-color: #333; /* Dark background initially */
+  color: #fff; /* White text */
+  height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;  /* Initially invisible */
+  animation: fadeIn 2s forwards; /* Fade-in animation */
 }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    background-color: #333; /* Dark background */
+    opacity: 0;  /* Invisible */
+  }
+  100% {
+    background-color: #f4f4f4; /* Light background */
+    opacity: 1;  /* Fully visible */
+  }
+}
+
+/* The rest of your existing styles */
 
 .App-logo {
   height: 40vmin;

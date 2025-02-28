@@ -1,48 +1,127 @@
 /* Style for the navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Center items vertically */
-    padding: 1rem 2rem; /* Convert px to rem for better responsiveness */
-    background-color: black; /* Set the navbar background to black */
-    margin-bottom: 1rem;
-  }
-  
-  /* Style for the navbar items (links) */
-  .navbar-left {
-    display: flex;
-    gap: 2rem; /* Convert px to rem */
-    align-items: center; /* Center items vertically within the navbar-left */
-  }
-  
-  /* Ensure links don't have underlines or color changes */
-  .nav-item {
-    text-decoration: none; /* Remove underline */
-    color: white; /* Set text color to white */
-    font-weight: normal; /* Make the text normal weight */
-    display: flex;
-    align-items: center; /* Center the text vertically */
-    height: 100%; /* Ensure it takes full height of the navbar */
-    font-weight: bold;
-    font-size: 1.2rem; /* Set font size in rem for responsiveness */
-  }
-  
-  /* Optionally, prevent color changes on hover */
-  .nav-item:hover {
-    color: white; /* Keep the text color white when hovering */
-    cursor: pointer; /* Show the pointer cursor on hover */
-  }
-  
-  /* Right section with user profile image */
-  .navbar-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Style for the profile image */
-  .profile-image {
-    width: 2.5rem; /* Convert px to rem */
-    height: 2.5rem; /* Convert px to rem */
-    border-radius: 50%;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  padding: 1rem 2rem; /* Convert px to rem for better responsiveness */
+  background-color: black; /* Set the navbar background to black */
+}
+
+/* Sticky navbar styling */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9); /* Set a slightly transparent background */
+}
+
+/* Style for the navbar items (links) */
+.navbar-left {
+  display: flex;
+  gap: 2rem; /* Convert px to rem */
+  align-items: center; /* Center items vertically within the navbar-left */
+}
+
+/* Ensure links don't have underlines or color changes */
+.nav-item {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Set text color to white */
+  font-weight: normal; /* Make the text normal weight */
+  display: flex;
+  align-items: center; /* Center the text vertically */
+  height: 100%; /* Ensure it takes full height of the navbar */
+  font-weight: bold;
+  font-size: 1.2rem; /* Set font size in rem for responsiveness */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for scale effect */
+}
+
+/* Hover effect - make the item grow */
+.nav-item:hover {
+  color: white; /* Keep the text color white when hovering */
+  cursor: pointer; /* Show the pointer cursor on hover */
+  transform: scale(1.1); /* Scale the item to 110% of its original size */
+}
+
+/* Right section with user profile image */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Add some space between the profile image and toggle button */
+}
+
+/* Style for the profile image */
+.profile-image {
+  width: 2.5rem; /* Convert px to rem */
+  height: 2.5rem; /* Convert px to rem */
+  border-radius: 50%;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem; /* Increase the font size of the moon icon */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Dark mode hover effect */
+.dark-mode-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Dark Mode Styles (Global) */
+body.dark-mode {
+  background-color: #121212; /* Dark background for the entire page */
+  color: #fff; /* Light text color for readability */
+}
+
+/* Links in dark mode */
+body.dark-mode .nav-item,
+body.dark-mode a {
+  color: #fff; /* Lighter color for links in dark mode */
+}
+
+body.dark-mode .nav-item:hover,
+body.dark-mode a:hover {
+  color: #fff; /* Hover effect to white */
+}
+
+/* Body content (background and text) */
+body.dark-mode .content {
+  background-color: #181818; /* Dark background for main content */
+  color: #fff; /* Light text color for readability */
+}
+
+/* Buttons and inputs */
+body.dark-mode button,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #333; /* Dark background for form elements */
+  color: #fff; /* White text for input elements */
+  border: 1px solid #444; /* Dark border for form elements */
+}
+
+body.dark-mode button:hover,
+body.dark-mode input:hover,
+body.dark-mode select:hover,
+body.dark-mode textarea:hover {
+  background-color: #444; /* Slightly lighter background on hover */
+}
+
+/* Dark Mode for Cards */
+body.dark-mode .feature-card {
+  background-color: #333; /* Darker background for feature cards */
+  color: #fff; /* Light text on cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for cards */
+}
+
+/* Dark Mode for Footer */
+body.dark-mode footer {
+  background-color: #1c1c1c; /* Dark background for footer */
+  color: #fff; /* Light text for footer */
+}
+
+/* Any additional global styles for dark mode can go here */

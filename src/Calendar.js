@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import Calendar from "react-calendar"; // Import the calendar component
-import "react-calendar/dist/Calendar.css"; // Import calendar styles
-import "./Calendar.css"; // Add your custom styles here
+import React, { useState } from 'react';
+import Calendar from 'react-calendar'; // Import the calendar component
+import 'react-calendar/dist/Calendar.css'; // Import calendar styles
+import './Calendar.css'; // Add your custom styles here
+import "./index.css"; // You can style your page with a CSS file
 
 const CalendarPage = () => {
   const [date, setDate] = useState(new Date()); // State to hold the selected date
+  const [view, setView] = useState('month'); // State to track the current view (month, year, etc.)
+  const [activeStartDate, setActiveStartDate] = useState(new Date()); // State to hold the calendar's view start date
   const [todoList, setTodoList] = useState({}); // State to hold the To-Do items per date
   const [todoText, setTodoText] = useState(""); // State to hold the text of a new To-Do item
 
@@ -13,6 +16,18 @@ const CalendarPage = () => {
     setDate(newDate);
   };
 
+  // Handle active start date change (for when you switch months)
+  const handleActiveStartDateChange = ({ activeStartDate }) => {
+    setActiveStartDate(activeStartDate);
+  };
+
+  // Handle "Go to Today" button click
+  const handleGoToToday = () => {
+    const today = new Date();
+    setDate(today); // Update the selected date
+    setActiveStartDate(today); // Move the calendar view to today's month
+  };
+  
   // Handle adding a new To-Do item
   const handleAddTodo = () => {
     if (!todoText.trim()) return; // Don't add empty To-Do items
@@ -22,7 +37,7 @@ const CalendarPage = () => {
     if (!newTodoList[dateString]) {
       newTodoList[dateString] = []; // Initialize an empty array if no To-Do items for this date
     }
-    newTodoList[dateString].push(todoText.trim()); // Add the new To-Do item
+    newTodoList[dateString].push({ text: todoText.trim(), checked: false }); // Add the new To-Do item with checked state
     setTodoList(newTodoList);
     setTodoText(""); // Clear the input after adding
   };
@@ -32,46 +47,75 @@ const CalendarPage = () => {
     setTodoText(e.target.value);
   };
 
+  // Toggle the checked state of a To-Do item
+  const toggleTodoChecked = (index) => {
+    const dateString = date.toDateString();
+    const newTodoList = { ...todoList };
+    const currentTodoItems = newTodoList[dateString];
+    currentTodoItems[index].checked = !currentTodoItems[index].checked;
+    setTodoList(newTodoList);
+  };
+
   // Get the To-Do items for the selected date
   const currentDateString = date.toDateString();
   const currentTodoItems = todoList[currentDateString] || [];
 
   return (
-    <div className="calendar-page">
-      <div className="calendar-section">
+    <div className='calendar-page'>
+        <div className="calendar-container">
+                  
+        {/* Calendar Component */}
         <Calendar
           onChange={handleDateChange}
           value={date}
+          activeStartDate={activeStartDate} // Set the active start date for the calendar view
+          onActiveStartDateChange={handleActiveStartDateChange} // Update the active start date when the calendar view changes
           className="calendar"
         />
-      </div>
 
-      <div className="todo-section">
-        <h3>To-Do for {date.toDateString()}</h3>
+        {/* Button to go to today's date */}
+        <button onClick={handleGoToToday} className="today-button gb-text-align-center gb-border-radius global-color-font-bright gb-color-background-gray">
+          Go to Today
+        </button>
+
+        <div className="todo-container">
+            <h3>{date.toDateString()}</h3>
 
         {/* Input field for adding new To-Do */}
-        <div>
+        <div className="input-container">
           <input
             type="text"
             value={todoText}
             onChange={handleInputChange}
+            onKeyPress={(e) => { if (e.key === 'Enter') handleAddTodo(); }} // Listen for Enter key press
             placeholder="Add a new to-do"
             className="todo-input"
+            maxLength={24}
           />
-          <button onClick={handleAddTodo} className="add-todo-button">
-            Add To-Do
-          </button>
+          <button onClick={handleAddTodo} className="add-todo-button">+</button>
         </div>
 
-        {/* Display the list of To-Do items for the selected date */}
-        <ul>
-          {currentTodoItems.length === 0 ? (
-            <li className="no-todoitemtxt">No to-do items for this date</li>
-          ) : (
-            currentTodoItems.map((item, index) => <li key={index}>{item}</li>)
-          )}
-        </ul>
-      </div>
+
+            {/* Display the list of To-Do items for the selected date */}
+            <ul>
+            {currentTodoItems.length === 0 ? (
+                <li className="no-todoitemtxt">No to-do items for this date</li>
+            ) : (
+                currentTodoItems.map((item, index) => (
+                <li key={index} className="todo-item">
+                    <input 
+                    type="checkbox"
+                    checked={item.checked}
+                    onChange={() => toggleTodoChecked(index)} // Toggle checked state
+                    className="todo-checkbox"
+                    />
+                    {item.text}
+                </li>
+                ))
+            )}
+            </ul>
+        </div>
+        </div>
     </div>
   );
 };

@@ -1,0 +1,433 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: black;
+  }
+  
+  /* Animation for dark to light effect */
+  @keyframes fadeIn {
+    0% {
+      background-color: #000; /* Starting with a dark background */
+      opacity: 0; /* Make the page invisible at the beginning */
+    }
+    100% {
+      background-color: #fff; /* Ending with a light background */
+      opacity: 1; /* Make the page fully visible */
+    }
+  }
+  
+  .home-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding-bottom: 3rem; /* Adds space at the bottom for scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 3s ease-in-out; /* Apply fadeIn animation */
+    opacity: 0; /* Initial state */
+    color: white; /* White text when the background is dark */
+  }
+  
+  /* Ensure content inside the container is visible once the animation finishes */
+  .home-container.show-content {
+    opacity: 1; /* Content becomes fully visible after animation */
+  }
+  
+  .home-header {
+    padding-top: 3rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .intro p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .app-introductions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    margin-bottom: 10rem;
+  }
+  
+  .app-card {
+    width: 250px;
+    border: 2px solid #ddd;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Add smooth hover effect */
+  }
+  
+  .app-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .app-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+  
+  .app-card h2 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .app-card p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* Remove the underline and keep the color for links */
+  .app-card a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the text color */
+  }
+  
+  
+  .scroll-content p {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  
+  /* Smooth scrolling for the whole page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .midtitle{
+    color: black;
+  }
+  
+  #servicename-title {
+    color: #000;
+  }
+
+  .todo-app-benefits h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .todo-app-benefits ul {
+    text-align: left;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .todo-app-benefits li {
+    margin-bottom: 1rem;
+  }
+  
+  .todo-app-benefits .cta {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .todo-app-benefits h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  
+  .benefit-box h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .benefit-box p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Adjust for smaller screen sizes */
+  @media (max-width: 1024px) {
+    .benefit-box {
+      width: calc(45% - 2rem);  /* Two boxes per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .benefit-box {
+      width: calc(100% - 2rem); /* Full width for small screens */
+    }
+  }
+
+
+
+
+
+/* Carousel container */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  margin-top: 2rem;
+  padding: 1rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #000;
+}
+
+/* The actual carousel */
+.carousel {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s ease-in-out; /* Smooth transition for scrolling */
+  width: 100%;
+}
+
+/* Each benefit box */
+.benefit-box {
+  border-radius: 20px;
+  background-color: white;
+  flex: 0 0 calc(100% / 5); /* Ensures each item takes up 1/3rd of the container's width */
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 200px;  /* You can adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Ensures text stays evenly spaced */
+}
+
+/* Heading styles inside the benefit boxes */
+.benefit-box h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph styles inside the benefit boxes */
+.benefit-box p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Call to Action styling */
+.cta {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Arrow buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+/* Hover effect for arrows */
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Accordion styles */
+.accordion {
+  margin-top: 40px;
+}
+
+.accordion-container{
+  width: 30%;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.accordion-btn {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.accordion-btn:hover {
+  background-color: #e9ecef;
+}
+
+.accordion-content {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.accordion-btn[aria-expanded="true"] {
+  background-color: #000;
+  color: white;
+}
+
+.accordion-btn[aria-expanded="true"]:hover {
+  background-color: #000;
+}
+
+.accordion-content p {
+  margin: 0;
+  color: black;
+  text-align: left;
+}
+
+
+
+/* Features Showcase Section Styling */
+.features-showcase {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden; /* Hide overflowing elements */
+}
+
+/* Section Title Styling */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Fade in effect for section title */
+.features-showcase.in-view .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Features Container */
+.features-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Feature Card */
+.feature-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px; /* Adjust card width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Feature Image Styling */
+.feature-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease;
+}
+
+/* Hover effect for feature image */
+.feature-card:hover .feature-image {
+  transform: scale(1.1);
+}
+
+/* Feature Title Styling */
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Feature Description Styling */
+.feature-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 90%; /* Make the cards wider on smaller screens */
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .feature-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Parallax Effect */
+.parallax {
+  background-image: url('assets/images/whitebackground.png'); /* Set the image URL */
+  height: 100vh; /* Full viewport height */
+  background-attachment: fixed; /* Creates the parallax effect */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
+  background-size: cover; /* Cover the entire background area */
+  width: 100%;
+}
+
+/* Content Style */
+.parallax-content {
+  padding: 20px; /* Add some padding */
+  position: relative; /* Make sure content appears on top of the parallax background */
+}

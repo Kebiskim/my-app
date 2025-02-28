@@ -6,6 +6,7 @@ import Home from './Home';
 import Todo from './Todo';
 import CalendarPage from './Calendar'; // Make sure you import the correct CalendarPage
 import Tasks from './Tasks';
+import './App.css';  // Ensure the CSS file is imported correctly
 
 const App = () => {
   return (
