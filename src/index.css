@@ -8,8 +8,13 @@ body {
   color: black;
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 /* 전역 컬러 선언 */
-.global-color-background-dark{
+.gb-color-background-dark{
   background-color: #2c2827;
 }
 
@@ -21,11 +26,11 @@ body {
   background-color: #fff;
 }
 
-.global-color-font-disabled{
+.gb-color-font-disabled{
   color: #ada19e;
 }
 
-.global-color-font-bright{
+.gb-color-font-bright{
   color: #fff;
 }
 
@@ -35,11 +40,6 @@ body {
 
 .gb-color-font-blue{
   color:aqua;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .gb-border-radius{
@@ -56,4 +56,8 @@ code {
 
 .gb-text-align-right{
   text-align: right;
+}
+
+.gb-display-flex{
+  display: flex;
 }

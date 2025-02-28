@@ -1,6 +1,5 @@
 /* Style for the overall calendar page */
 .calendar-page {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;  /* Ensure the content starts from the top */
@@ -9,17 +8,6 @@
     padding: 2rem; /* Adjust padding for better spacing */
   }
   
-  /* Style for the calendar container */
-  .calendar-section {
-    display: flex;
-    justify-content: center; /* Center the calendar horizontally */
-    align-items: center; /* Center the calendar vertically */
-    width: 100%;
-    margin-bottom: 2rem; /* Add space between calendar and to-do section */
-    height: 40%; /* Ensure it takes full height */
-    margin-top: 2rem;
-  }
-
   .calendar-container{
     width: 50vh;
   }
@@ -53,30 +41,16 @@
   background-color: gray;
 }
 
-
-  
-  /* Style for the To-Do container */
-  .todo-section {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-  }
-  
 /* Style for the To-Do container */
 .todo-container {
     width: 50vh;
     max-width: 500px;
     margin-top: 2rem;
-    display: flex;
     flex-direction: column;
     align-items: center; /* Horizontally center all elements */
     justify-content: center; /* Vertically center all elements */
     padding: 0px;
 }
-
 
 /* Style for the To-Do title */
 .todo-container h3 {
@@ -84,43 +58,40 @@
   margin-bottom: 1rem;
 }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
   
-  li {
-    padding: 0.5rem 0;
-    font-weight: bold; /* Make To-Do items bold */
-  }
+li {
+  padding: 0.5rem 0;
+  font-weight: bold; /* Make To-Do items bold */
+}
   
 /* Style for each todo item */
 .todo-item {
-    display: flex;
     align-items: center; /* Align the checkbox and text horizontally */
     gap: 10px; /* Add space between checkbox and text */
   }
   
-  /* Style for the checkbox */
-  .todo-checkbox {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%; /* Make it circular */
-    border: 2px solid black; /* Black border */
-    cursor: pointer;
-    accent-color: black; /* Set checkbox accent color to black */
-  }
-  
-  .no-todoitemtxt {
-    font-style: italic;
-    font-size: 0.7rem;
-    color: gray;
-  }
+/* Style for the checkbox */
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* Make it circular */
+  border: 2px solid black; /* Black border */
+  cursor: pointer;
+  accent-color: black; /* Set checkbox accent color to black */
+}
 
+.no-todoitemtxt {
+  font-style: italic;
+  font-size: 0.7rem;
+  color: gray;
+}
 
   /* Style for the container of input and button */
 .input-container {
-  display: flex; /* Aligns input and button in a row */
   align-items: center; /* Vertically aligns input and button */
   justify-content: center; /* Optional: centers input and button horizontally */
   gap: 10px; /* Adds space between the input and button */
@@ -135,13 +106,10 @@
 }
 
 .add-todo-button {
-  background-color: #007bff;
-  color: white;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   width: auto; /* Ensure the button size adjusts based on content */
-  display: flex;
   align-items: center; /* Vertically center the button content */
   justify-content: center; /* Optional: horizontally center the button text */
   margin: 0px;

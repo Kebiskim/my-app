@@ -6,7 +6,6 @@ import "./index.css"; // You can style your page with a CSS file
 
 const CalendarPage = () => {
   const [date, setDate] = useState(new Date()); // State to hold the selected date
-  const [view, setView] = useState('month'); // State to track the current view (month, year, etc.)
   const [activeStartDate, setActiveStartDate] = useState(new Date()); // State to hold the calendar's view start date
   const [todoList, setTodoList] = useState({}); // State to hold the To-Do items per date
   const [todoText, setTodoText] = useState(""); // State to hold the text of a new To-Do item
@@ -61,7 +60,7 @@ const CalendarPage = () => {
   const currentTodoItems = todoList[currentDateString] || [];
 
   return (
-    <div className='calendar-page'>
+    <div className='calendar-page gb-display-flex'>
         <div className="calendar-container">
                   
         {/* Calendar Component */}
@@ -74,7 +73,7 @@ const CalendarPage = () => {
         />
 
         {/* Button to go to today's date */}
-        <button onClick={handleGoToToday} className="today-button gb-text-align-center gb-border-radius global-color-font-bright gb-color-background-gray">
+        <button onClick={handleGoToToday} className="today-button gb-text-align-center gb-border-radius gb-color-font-bright gb-color-background-gray">
           Go to Today
         </button>
 
@@ -82,7 +81,7 @@ const CalendarPage = () => {
             <h3>{date.toDateString()}</h3>
 
         {/* Input field for adding new To-Do */}
-        <div className="input-container">
+        <div className="input-container gb-display-flex">
           <input
             type="text"
             value={todoText}
@@ -92,7 +91,7 @@ const CalendarPage = () => {
             className="todo-input"
             maxLength={24}
           />
-          <button onClick={handleAddTodo} className="add-todo-button">+</button>
+          <button onClick={handleAddTodo} className="add-todo-button gb-color-background-gray">+</button>
         </div>
 
 
@@ -102,7 +101,7 @@ const CalendarPage = () => {
                 <li className="no-todoitemtxt">No to-do items for this date</li>
             ) : (
                 currentTodoItems.map((item, index) => (
-                <li key={index} className="todo-item">
+                <li key={index} className="todo-item gb-display-flex">
                     <input 
                     type="checkbox"
                     checked={item.checked}

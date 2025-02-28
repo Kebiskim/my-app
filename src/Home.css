@@ -1,3 +1,5 @@
+@import url('index.css');
+
 /* General styles */
 body {
     margin: 0;
@@ -29,7 +31,6 @@ body {
     opacity: 0; /* Initial state */
     color: white; /* White text when the background is dark */
   }
-  
   /* Ensure content inside the container is visible once the animation finishes */
   .home-container.show-content {
     opacity: 1; /* Content becomes fully visible after animation */
@@ -101,8 +102,6 @@ body {
     color: #333;
     margin-bottom: 2rem;
   }
-  
-  
   /* Smooth scrolling for the whole page */
   html {
     scroll-behavior: smooth;
@@ -183,12 +182,10 @@ body {
   margin-bottom: 5%;
   margin-left: 10%;
   margin-right: 10%;
-  color: #000;
 }
 
 /* The actual carousel */
 .carousel {
-  display: flex;
   gap: 2rem;
   transition: transform 0.5s ease-in-out; /* Smooth transition for scrolling */
   width: 100%;

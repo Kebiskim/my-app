@@ -183,7 +183,7 @@ const featureData = [
   return (
     <div className={`home-container ${isContentVisible ? "show-content" : ""}`}>
       <div class="parallax">
-        <div class="parallax-content global-color-font-bright gb-text-align-center">
+        <div class="parallax-content gb-color-font-bright gb-text-align-center">
           <div className="home-header gb-text-align-center">
             <h1>Welcome to Your Productivity Suite!</h1>
             <div className="intro">
@@ -238,19 +238,19 @@ const featureData = [
       </div>
     </div>
 
-    <div className="carousel-container gb-text-align-center">
+    <div className="carousel-container gb-text-align-center gb-color-font-black">
       <h3>Why Use Our To-Do App?</h3>
       <div className="carousel-wrapper">
         <button className="carousel-btn left" onClick={handleLeftClick}>
           &#10094;
         </button>
         <div
-          className="carousel"
+          className="carousel gb-display-flex"
           ref={carouselRef}
           style={{ transform: `translateX(-${currentIndex * 300}px)` }}
         >
           {benefitTitles.map((title, index) => (
-            <div key={index} className="benefit-box gb-text-align-center">
+            <div key={index} className="benefit-box gb-text-align-center gb-color-background-gray gb-color-font-black">
               <h4>{title}</h4>
               <p>Short description of {title} benefits.</p>
             </div>

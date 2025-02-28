@@ -50,11 +50,11 @@ const Todo = () => {
   };
 
   return (
-    <div className="todo-container gb-text-align-center">
+    <div className="todo-container gb-text-align-center gb-display-flex">
       <h1>To-Do List</h1>
 
         {/* Input field for adding new To-Do */}
-        <div className="input-container">
+        <div className="input-container gb-display-flex">
           <input
             type="text"
             value={todoText}
@@ -64,7 +64,7 @@ const Todo = () => {
             className="todo-input"
             maxLength={24}
           />
-          <button onClick={handleAddTodo} className="add-todo-button">+</button>
+          <button onClick={handleAddTodo} className="add-todo-button gb-display-flex global-color-background-white">+</button>
         </div>
 
       {/* Display the list of To-Do items */}
